@@ -19,6 +19,9 @@ android {
     }
 }
 
+final espressoVersion = '2.2.2'
+final okHttpVersion = '3.4.1'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -28,8 +31,28 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     // Retrofit & OkHttp
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
     testCompile 'junit:junit:4.12'
+
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestCompile "com.android.support.test:runner:0.5"
+    androidTestCompile 'com.android.support:support-annotations:25.3.1'
+
+
+    androidTestCompile ('com.android.support.test.espresso:espresso-contrib:2.2.2') {
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+        exclude module: 'appcompat-v7'
+        exclude module: 'design'
+    }
+
+    androidTestCompile "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+
+    compile "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
 }
