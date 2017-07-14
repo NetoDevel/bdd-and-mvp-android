@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import java.io.IOException;
 
 import br.com.netodevel.bdd_and_mvp_sample_android.R;
-import br.com.netodevel.bdd_and_mvp_sample_android.rest.Enviroment;
+import br.com.netodevel.bdd_and_mvp_sample_android.data.Enviroments;
 import br.com.netodevel.bdd_and_mvp_sample_android.user.UserActivity;
 import okhttp3.mockwebserver.MockWebServer;
 
@@ -42,7 +42,7 @@ public class CreateUserTest {
 
         private void setupMockServer() {
             String url = this.mockWebServer.url("/").toString();
-            Enviroment.baseURL = url;
+            Enviroments.baseURL = url;
         }
 
         @After
